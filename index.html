@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="JeopardyApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Jeopardy app</title>
+</head>
+
+<body>
+    <div ng-controller= "JeopardyController" class="">
+        <h1>Jeopardy!!!</h1>
+        <button ng-click = "NewQuestion()" type="button" name="button">New Question</button>
+        <h2>Category: {{ questiongroup.category }}</h2>
+        <h2>Question: {{ questiongroup.question }}</h2>
+        <h4>Point Value: {{ questiongroup.value }}</h4>
+        <input ng-model = "questiongroup.answer" type="text" name="name" value="blank">
+        <button ng-click = "AnswerCheck()" type="button" name="button">What is...</button>
+
+        <!-- <h2>Answer: <span ng-if = "previousquestion.answer === question.answer"> Correct! {{ question.answer }}</span></h2> -->
+        <h3>Score: </h3>
+        <h3>Previous Questions</h3>
+        <ul ng-repeat = "thing in previousquestion | orderBy: 'value'">
+          <li> Value: {{thing.value}} Question: {{ thing.question }} </li>
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
