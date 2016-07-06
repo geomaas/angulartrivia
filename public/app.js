@@ -38,6 +38,7 @@ module.exports = function(jeopardy) {
             return true;
           }else {
             console.log(false);
+            $scope.questiongroup.score -= currentQuestion.value;
           }
         };
         // Make an AJAX request and update the scope.

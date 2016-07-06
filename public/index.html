@@ -19,8 +19,8 @@
         <h2>Answer:  {{ previousquestion.answer }} </h2>
         <h3>Score: {{ questiongroup.score }} </h3>
         <h3>Previous Questions</h3>
-        <ul ng-repeat = "thing in previousquestion">
-          <li> Value: {{thing.value}} Question: {{ thing.question }} </li>
+        <ul>
+          <li ng-repeat = "thing in previousquestion"> Value: {{thing.value}} Question: {{ thing.question }} </li>
         </ul>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
