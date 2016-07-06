@@ -4,9 +4,6 @@ module.exports = function(jeopardy) {
         $scope.previousquestion = [
 
         ];
-        $scope.answered = [
-
-        ];
 
         $scope.questiongroup = {
             category: "geoff's mistakes",
@@ -14,8 +11,11 @@ module.exports = function(jeopardy) {
             question: 'I had too many of these, this past weekend...',
             value: 0,
             useranswer:"",
+            score: 0,
         };
+
         $scope.AnswerCheck = function() {
+          console.log($scope.questiongroup.score);
           console.log($scope.playerAnswer);
           let currentQuestion = $scope.previousquestion[$scope.previousquestion.length - 1];
           currentQuestion.useranswer = $scope.playerAnswer;
@@ -23,9 +23,12 @@ module.exports = function(jeopardy) {
           $scope.playerAnswer = null;
           if (currentQuestion.useranswer === currentQuestion.answer.toLowerCase()) {
             console.log(true);
-            console.log(currentQuestion.userscore);
-            console.log(currentQuestion.value);
-            currentQuestion.userscore += currentQuestion.value;
+            // console.log(currentQuestion.userscore);
+            // console.log(currentQuestion.value);
+            // console.log(currentQuestion.userscore += currentQuestion.value);
+            $scope.questiongroup.score += currentQuestion.value;
+            console.log($scope.questiongroup.score);
+            return true;
           }else {
             console.log(false);
           }

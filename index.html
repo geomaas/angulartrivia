@@ -16,8 +16,8 @@
         <input ng-model = "playerAnswer" type="text" name="name" value="">
         <button ng-click = "AnswerCheck()" type="button" name="button">What(who,where,when) is...</button>
 
-        <h2>Answer: <span ng-if = "$scope.AnswerCheck() == true"> Correct! {{ previousquestion.answer }}</span></h2>
-        <h3>Score: {{ $scope.AnswerCheck() }}</h3>
+        <h2>Answer:  {{ previousquestion.answer }} </h2>
+        <h3>Score: {{ previousquestion.userscore }} </h3>
         <h3>Previous Questions</h3>
         <ul ng-repeat = "thing in previousquestion">
           <li> Value: {{thing.value}} Question: {{ thing.question }} </li>
