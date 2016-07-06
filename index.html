@@ -13,13 +13,13 @@
         <h2>Category: {{ questiongroup.category }}</h2>
         <h2>Question: {{ questiongroup.question }}</h2>
         <h4>Point Value: {{ questiongroup.value }}</h4>
-        <input ng-model = "questiongroup.answer" type="text" name="name" value="blank">
-        <button ng-click = "AnswerCheck()" type="button" name="button">What is...</button>
+        <input ng-model = "playerAnswer" type="text" name="name" value="">
+        <button ng-click = "AnswerCheck()" type="button" name="button">What(who,where,when) is...</button>
 
-        <!-- <h2>Answer: <span ng-if = "previousquestion.answer === question.answer"> Correct! {{ question.answer }}</span></h2> -->
-        <h3>Score: </h3>
+        <h2>Answer: <span ng-if = "$scope.AnswerCheck() == true"> Correct! {{ previousquestion.answer }}</span></h2>
+        <h3>Score: {{ $scope.AnswerCheck() }}</h3>
         <h3>Previous Questions</h3>
-        <ul ng-repeat = "thing in previousquestion | orderBy: 'value'">
+        <ul ng-repeat = "thing in previousquestion">
           <li> Value: {{thing.value}} Question: {{ thing.question }} </li>
         </ul>
     </div>

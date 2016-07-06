@@ -23,10 +23,20 @@ module.exports = function(jeopardy) {
             useranswer:"",
         };
         $scope.AnswerCheck = function() {
-          console.log("click is working");
-          
+          console.log($scope.playerAnswer);
+          let currentQuestion = $scope.previousquestion[$scope.previousquestion.length - 1];
+          currentQuestion.useranswer = $scope.playerAnswer;
+          console.log($scope.previousquestion);
+          $scope.playerAnswer = null;
+          if (currentQuestion.useranswer === currentQuestion.answer.toLowerCase()) {
+            console.log(true);
+            console.log(currentQuestion.userscore);
+            console.log(currentQuestion.value);
+            currentQuestion.userscore += currentQuestion.value;
+          }else {
+            console.log(false);
+          }
         };
-        $scope.AnswerCheck();
         // Make an AJAX request and update the scope.
         $scope.NewQuestion = function() {
             $http({
@@ -34,14 +44,14 @@ module.exports = function(jeopardy) {
                 url: 'http://jservice.io/api/random',
             }).then(function(response) {
                 let question = response.data[0];
-                // console.log(question);
-                console.log("NewQuestion click working");
+                console.log(question);
+                // console.log("NewQuestion click working");
                 $scope.questiongroup.question = question.question;
                 $scope.questiongroup.value = question.value;
                 $scope.questiongroup.category = question.category.title;
                 // $scope.questiongroup.answer = question.answer;
-
-                $scope.previousquestion.push({question: question.question, value: question.value, answer: question.answer});
+                $scope.previousquestion.push({question: question.question, value: question.value, answer: question.answer, userscore: 0});
+                // $scope.playerAnswer.val('');
             });
         };
         $scope.NewQuestion();
