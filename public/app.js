@@ -128,24 +128,25 @@ module.exports = function(jeopardy) {
           // console.log(response);
             let category = response.data;
             // console.log(category);
+            /////////////// add math.random function for category ids
             categoryOne = category.filter(function (el) {
-              return el.category_id === 1;
+              return el.category_id === 1 && el.value !== null;
             });
 
             categoryTwo = category.filter(function (el) {
-              return el.category_id === 7;
+              return el.category_id === 7 && el.value !== null;
             });
 
             categoryThree = category.filter(function (el) {
-              return el.category_id === 3;
+              return el.category_id === 3 && el.value !== null;
             });
 
             categoryFour = category.filter(function (el) {
-              return el.category_id === 4;
+              return el.category_id === 4 && el.value !== null;
             });
 
             categoryFive = category.filter(function (el) {
-              return el.category_id === 11;
+              return el.category_id === 11 && el.value !== null;
             });
             // console.log(categoryOne);
             angular.copy(categoryOne, categoryOneArr);
