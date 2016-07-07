@@ -128,9 +128,9 @@ module.exports = function(jeopardy) {
           // console.log(response);
             let category = response.data;
             // console.log(category);
-            /////////////// add math.random function for category ids
+            /////////////// add math.random function for category ids math.ceil(math.random() * 4)
             categoryOne = category.filter(function (el) {
-              return el.category_id === 1 && el.value !== null;
+              return el.category_id === Math.ceil(Math.random() * 4) && el.value !== null;
             });
 
             categoryTwo = category.filter(function (el) {

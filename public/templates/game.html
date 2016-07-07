@@ -5,7 +5,7 @@
     <div class="question-box">
     <h2> {{ catOne.category.title }}Politics </h2>
     <ol>
-      <li ng-repeat="info in catOne">
+      <li ng-repeat="info in catOne | limitTo : 5">
         <p>
            Value: {{ info.value }}
         </p>
